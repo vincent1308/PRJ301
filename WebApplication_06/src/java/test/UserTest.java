@@ -7,6 +7,7 @@ package test;
 
 import dao.UserDAO;
 import dto.UserDTO;
+import java.util.List;
 
 /**
  *
@@ -14,13 +15,22 @@ import dto.UserDTO;
  */
 public class UserTest {
     public static void main(String[] args) {
-        UserDTO u1 = new UserDTO("TLN01", "Ban", "AD", "khong_co_pass");
         UserDAO userDAO = new UserDAO();
-        System.out.println(userDAO.create(u1));
+//        UserDTO u1 = new UserDTO("TLN01", "Le Nhat Tung", "AD", "khong_co_pass");
+//        System.out.println(userDAO.create(u1));
+//        
+//        for (int i = 0; i < 10; i++) {
+//             UserDTO ui = new UserDTO("USER"+i, "Nguyen Van "+i, "US", i+"");
+//             userDAO.create(ui);
+//        }
+//        UserDTO u2 = new UserDTO("TLN01", "Le Nhat Tung", "US", "Nothing");
+//        userDAO.update(u2);
+//        userDAO.delete("USER0");
+
+        List<UserDTO> list = userDAO.readAll();
         
-        for (int i = 0; i < 20; i++) {
-            UserDTO ui = new UserDTO("USER"+i, "Nguyen "+i, "US", i+"");
-            userDAO.create(ui);
+        for (UserDTO userDTO : list) {
+            System.out.println(userDTO);
         }
     }
 }
